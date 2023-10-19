@@ -9,7 +9,9 @@
     d:DesignWidth="800"
     ExtendClientAreaToDecorationsHint="True"
     TransparencyLevelHint="AcrylicBlur"
+    xmlns:dlg="using:dobra3.Views.Dialogs"
     mc:Ignorable="d">
+
     <Panel>
         <ExperimentalAcrylicBorder IsHitTestVisible="False">
             <ExperimentalAcrylicBorder.Material>
@@ -24,18 +26,23 @@
         <Panel Margin="40">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                    <Label
+                    <TextBlock
                         VerticalAlignment="Center"
-                        Content="Klucz do api OpenAI:"
+                        Text="Klucz do api OpenAI:"
                         FontWeight="Bold" />
                     <TextBox MinWidth="200" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label
+					<TextBlock
                         VerticalAlignment="Center"
-                        Content="Plik z pytaniami: "
+                        Text="Plik z pytaniami: "
                         FontWeight="Bold" />
-                    <Button Content="Wybierz" />
+                    <Button Content="Wybierz"
+                            Click="Button_OnClick" />
+					<TextBlock
+                        Text="{Binding ViewModel.QuestionsFileName, RelativeSource={RelativeSource AncestorType={x:Type dlg:SettingsDialogWindow}}}"
+                        VerticalAlignment="Center"
+                        />
                 </StackPanel>
             </StackPanel>
         </Panel>

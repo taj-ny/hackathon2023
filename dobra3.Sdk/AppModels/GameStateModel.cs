@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using dobra3.Shared.Api;
 
 namespace dobra3.Sdk.AppModels
 {
-    public sealed class GameStateModel
+    public static class GameStateModel
     {
+        public static string? OpenAiKey { get; set; } = ApiKeys.GetOpenAiKey();
+
+        public static string? QuestionsFilePath { get; set; }
     }
 }
