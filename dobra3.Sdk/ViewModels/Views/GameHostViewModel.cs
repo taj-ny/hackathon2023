@@ -86,12 +86,12 @@ namespace dobra3.Sdk.ViewModels.Views
 
             if (!answer.IsCorrect)
                 await _navigationService.NavigateAsync(new GameOverHostViewModel());
-
-            _questionIndex++;
-            if (_questionIndex >= Questions.Count)
-                await _navigationService.NavigateAsync(new GameWonHostViewModel() { WonAmount = 10m });
             else
-                CurrentQuestion = Questions[_questionIndex];
+                _questionIndex++;
+                if (_questionIndex >= Questions.Count)
+                    await _navigationService.NavigateAsync(new GameWonHostViewModel() { WonAmount = 10m });
+                else
+                    CurrentQuestion = Questions[_questionIndex];
         }
     }
 }
