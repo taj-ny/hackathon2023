@@ -31,7 +31,10 @@
                         VerticalAlignment="Center"
                         Text="Klucz do api OpenAI:"
                         FontWeight="Bold" />
-                    <TextBox MinWidth="200" />
+                    <TextBox 
+                        MinWidth="200"
+                        x:DataType="vm:SettingsDialogViewModel"
+                        Text="{Binding OpenAiKey, Mode=TwoWay, RelativeSource={RelativeSource DataContext}}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
 					<TextBlock
