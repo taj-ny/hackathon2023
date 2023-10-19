@@ -11,7 +11,7 @@ namespace dobra3.Sdk.ViewModels
 
         public Task InitAsync(CancellationToken cancellationToken = default)
         {
-            //HostNavigationService.NavigateAsync(null);
+            HostNavigationService.NavigateAsync(new MenuHostViewModel(HostNavigationService));
             return Task.CompletedTask;
         }
     }

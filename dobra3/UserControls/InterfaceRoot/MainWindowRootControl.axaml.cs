@@ -10,7 +10,7 @@ namespace dobra3.UserControls.InterfaceRoot
         public MainViewModel ViewModel
         {
             get => (MainViewModel)DataContext;
-            set => ViewModel = value;
+            set => DataContext = value;
         }
 
         public MainWindowRootControl()

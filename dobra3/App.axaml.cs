@@ -23,10 +23,10 @@ namespace dobra3
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
-
                 _serviceProvider = ConfigureServices();
                 Ioc.Default.ConfigureServices(_serviceProvider);
+
+                desktop.MainWindow = new MainWindow();
             }
 
             base.OnFrameworkInitializationCompleted();
