@@ -1,27 +1,269 @@
 {
-    "name": "Paweł questions",
-    "questions": [
-        {
-            "question": "Dlaczego w Peru szczają na polskie mandarynki?",
-            "difficulty": 1,
-            "answers": [
-                {
-                    "answer": "Bo są zielone",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Bo są zbyt słodkie",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Aaaa dobra bo 1+1 daje 2",
-                    "isCorrect": true
-                },
-                {
-                    "answer": "Bo są zbyt gorzkie",
-                    "isCorrect": false
-                }
-            ]
-        }
-    ]
+	"name": "Default questions",
+	"questions": [
+		{
+			"question": "W jakim roku pierwszy raz przetestowano bombę atomową?",
+			"difficulty": 1,
+			"answers": [
+				{
+					"answer": "1925",
+					"isCorrect": false
+				},
+				{
+					"answer": "2025",
+					"isCorrect": false
+				},
+				{
+					"answer": "1945",
+					"isCorrect": true
+				},
+				{
+					"answer": "2017",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto z poniżej wymienionych dostał nagrodę nobla?",
+			"difficulty": 2,
+			"answers": [
+				{
+					"answer": "Maria Skłodowska Curie",
+					"isCorrect": true
+				},
+				{
+					"answer": "Nikita Tesla",
+					"isCorrect": false
+				},
+				{
+					"answer": "Paweł Eskobar",
+					"isCorrect": false
+				},
+				{
+					"answer": "Creighton Abrams",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł lampe naftową?",
+			"difficulty": 3,
+			"answers": [
+				{
+					"answer": "Carl Gustaf Mannerheim",
+					"isCorrect": false
+				},
+				{
+					"answer": "Ignacy Łukasiewicz",
+					"isCorrect": true
+				},
+				{
+					"answer": "Omar Bradley",
+					"isCorrect": false
+				},
+				{
+					"answer": "Jan Kowalski",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł dynamit?",
+			"difficulty": 4,
+			"answers": [
+				{
+					"answer": "Selçuk Bayraktar",
+					"isCorrect": false
+				},
+				{
+					"answer": "Alfred Nobel",
+					"isCorrect": true
+				},
+				{
+					"answer": "Andrei Ford",
+					"isCorrect": false
+				},
+				{
+					"answer": "William Sherman",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł druk?",
+			"difficulty": 5,
+			"answers": [
+				{
+					"answer": "John Pershing",
+					"isCorrect": false
+				},
+				{
+					"answer": "Philippe Leclerc",
+					"isCorrect": false
+				},
+				{
+					"answer": "Uhro Kekkonen",
+					"isCorrect": false
+				},
+				{
+					"answer": "Johannes Gutenberg",
+					"isCorrect": true
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł penycyline?",
+			"difficulty": 6,
+			"answers": [
+				{
+					"answer": "Alexander Fleming",
+					"isCorrect": true
+				},
+				{
+					"answer": "Richard Himars",
+					"isCorrect": false
+				},
+				{
+					"answer": "Edmund Heckler",
+					"isCorrect": false
+				},
+				{
+					"answer": "Theodor Koch",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł elektryczność?",
+			"difficulty": 7,
+			"answers": [
+				{
+					"answer": "Thomas Edison",
+					"isCorrect": true
+				},
+				{
+					"answer": "Edward House",
+					"isCorrect": false
+				},
+				{
+					"answer": "Lamar Davis",
+					"isCorrect": false
+				},
+				{
+					"answer": "Napoleon Bonaparte",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł radio?",
+			"difficulty": 8,
+			"answers": [
+				{
+					"answer": "Thomas Edison",
+					"isCorrect": false
+				},
+				{
+					"answer": "Dimitri Rascalov",
+					"isCorrect": false
+				},
+				{
+					"answer": "Guglielmo Marconi",
+					"isCorrect": true
+				},
+				{
+					"answer": "Michael Townley",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Alfabet morse'a został mymyślony przez tą samą osobę co wynalazła:",
+			"difficulty": 9,
+			"answers": [
+				{
+					"answer": "Telefon",
+					"isCorrect": false
+				},
+				{
+					"answer": "Radio",
+					"isCorrect": false
+				},
+				{
+					"answer": "Żarówkę",
+					"isCorrect": false
+				},
+				{
+					"answer": "Telegraf",
+					"isCorrect": true
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł rewolwer?",
+			"difficulty": 10,
+			"answers": [
+				{
+					"answer": "Samuel Colt",
+					"isCorrect": true
+				},
+				{
+					"answer": "Richard Browning",
+					"isCorrect": false
+				},
+				{
+					"answer": "Francuis Famas",
+					"isCorrect": false
+				},
+				{
+					"answer": "Michaił Kałasznikow",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto stworzył linuxa?",
+			"difficulty": 11,
+			"answers": [
+				{
+					"answer": "Linux Tech Tips",
+					"isCorrect": false
+				},
+				{
+					"answer": "David Philips",
+					"isCorrect": false
+				},
+				{
+					"answer": "Linus Torvalds",
+					"isCorrect": true
+				},
+				{
+					"answer": "Michael Mayers",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"question": "Kto wynalazł benzyne?",
+			"difficulty": 12,
+			"answers": [
+				{
+					"answer": "Linux Tech Tips",
+					"isCorrect": false
+				},
+				{
+					"answer": "Wiaczesław Mołotow",
+					"isCorrect": false
+				},
+				{
+					"answer": "Thomas Midgley",
+					"isCorrect": true
+				},
+				{
+					"answer": "Simo Häyhä",
+					"isCorrect": false
+				}
+			]
+		}
+	]
 }
