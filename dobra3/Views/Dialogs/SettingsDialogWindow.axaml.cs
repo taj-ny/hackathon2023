@@ -1,5 +1,7 @@
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using dobra3.Sdk.ViewModels.Dialogs;
 
 namespace dobra3.Views.Dialogs
@@ -18,6 +20,11 @@ namespace dobra3.Views.Dialogs
         public SettingsDialogWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_OnClick(object? sender, RoutedEventArgs e)
+        {
+            ViewModel.SelectQuestionsFileCommand.Execute(null);
         }
     }
 }
