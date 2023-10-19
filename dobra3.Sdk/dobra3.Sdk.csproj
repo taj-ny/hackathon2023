@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.0.2" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="OwlCore.Storage" Version="0.8.7" />
   </ItemGroup>
