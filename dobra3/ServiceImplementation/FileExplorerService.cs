@@ -1,5 +1,4 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Platform.Storage;
 using dobra3.Sdk.Services;
 using dobra3.Views;
 using System.Linq;
@@ -11,13 +10,12 @@ namespace dobra3.ServiceImplementation
     {
         public async Task<string?> PickFileAsync(string filter)
         {
-            var topLevel = TopLevel.GetTopLevel(MainWindow.Instance);
+            _ = filter;
 
+            var topLevel = TopLevel.GetTopLevel(MainWindow.Instance);
             var items = await topLevel.StorageProvider.OpenFilePickerAsync(new()
             {
-                AllowMultiple = false,
-                FileTypeFilter = new FilePickerFileType[] { new(filter) },
-
+                AllowMultiple = false
             });
 
             return items.FirstOrDefault()?.Path.LocalPath;

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using dobra3.Sdk.Services;
+using dobra3.Sdk.ViewModels.Dialogs;
 
 namespace dobra3.Sdk.ViewModels
 {
@@ -99,7 +100,10 @@ namespace dobra3.Sdk.ViewModels
         [RelayCommand]
         private async Task CallAsync()
         {
-            await DialogService.ShowChatDialogAsync(new());
+            var viewModel = new ChatDialogViewModel();
+            await viewModel.InitAsync();
+
+            await DialogService.ShowChatDialogAsync(viewModel);
             IsCallUsed = true;
         }
     }
