@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -8,8 +10,26 @@ namespace dobra3.Sdk.ViewModels
         [ObservableProperty] private bool _IsVoteUsed;
         [ObservableProperty] private bool _IsSplitUsed;
         [ObservableProperty] private bool _IsCallUsed;
+        [ObservableProperty] private bool _DisplayVotingResults;
 
-        public QuestionViewModel? CurrentQuestion { get; set; }
+        private QuestionViewModel _CurrentQuestion;
+        public QuestionViewModel? CurrentQuestion
+        {
+            get => _CurrentQuestion;
+            set
+            {
+                _CurrentQuestion = value;
+                DisplayVotingResults = false;
+            }
+        }
+        
+        public ObservableCollection<string> Votes { get; }
+        
+
+        public LiveLineViewModel()
+        {
+            Votes = new();
+        }
 
         [RelayCommand]
         private async Task VoteAsync()
@@ -52,6 +72,11 @@ namespace dobra3.Sdk.ViewModels
                 remainingVotes -= votesToAdd;
             }
 
+            Votes.Clear();
+            foreach (var vote in votes.Values)
+                Votes.Add($"{vote}%");
+
+            DisplayVotingResults = true;
             IsVoteUsed = true;
         }
         
