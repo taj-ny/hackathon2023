@@ -94,7 +94,7 @@
 						    <ColumnDefinition Width="Auto" />
 					    </Grid.ColumnDefinitions>    
 					    
-					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="A"/>
+					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="B"/>
 					    <TextBlock
 						    Grid.Column="2"
 						    Text="{Binding ViewModel.CurrentQuestion.Answers[1].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
@@ -120,7 +120,7 @@
 						    <ColumnDefinition Width="Auto" />
 					    </Grid.ColumnDefinitions>    
 					    
-					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="A"/>
+					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="C"/>
 					    <TextBlock
 						    Grid.Column="2"
 						    Text="{Binding ViewModel.CurrentQuestion.Answers[2].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
@@ -146,7 +146,7 @@
 						    <ColumnDefinition Width="Auto" />
 					    </Grid.ColumnDefinitions>    
 					    
-					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="A"/>
+					    <TextBlock Grid.Column="0" FontWeight="Bold" Text="D"/>
 					    <TextBlock
 						    Grid.Column="2"
 						    Text="{Binding ViewModel.CurrentQuestion.Answers[3].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>

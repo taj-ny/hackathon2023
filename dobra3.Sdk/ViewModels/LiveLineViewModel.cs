@@ -55,8 +55,8 @@ namespace dobra3.Sdk.ViewModels
                 var answers = votes.Keys.ToList()
                     .OrderBy(x => Guid.NewGuid().ToString())
                     .ToList();
+                votes[answers.First(x => x.IsCorrect)] = Random.Shared.Next(30, 45);
                 votes[answers[0]] = Random.Shared.Next(30, 45);
-                votes[answers[1]] = Random.Shared.Next(30, 45);
 
                 remainingVotes -= votes[answers[0]] + votes[answers[1]];
             }
