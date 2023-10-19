@@ -83,7 +83,7 @@
                                     Padding="6"
                                     Background="{Binding SenderType, Converter={StaticResource SenderTypeToBrushConverter}}"
                                     CornerRadius="8">
-                                    <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+                                    <SelectableTextBlock Text="{Binding Message}" TextWrapping="Wrap" />
                                 </Border>
                             </Grid>
                         </DataTemplate>
