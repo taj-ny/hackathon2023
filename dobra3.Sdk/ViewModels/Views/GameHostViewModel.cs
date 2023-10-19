@@ -10,13 +10,12 @@ namespace dobra3.Sdk.ViewModels.Views
     public sealed partial class GameHostViewModel : BasePageViewModel, IAsyncInitialize
     {
         private readonly INavigationService _navigationService;
-        
         private readonly QuestionSetDataModel _questions;
+        
+        private int _questionIndex;
 
         [ObservableProperty] private ObservableCollection<QuestionViewModel> _Questions;
         [ObservableProperty] private QuestionViewModel? _CurrentQuestion;
-
-        private IEnumerator<QuestionViewModel> _questionsEnumerator;
 
         public GameHostViewModel(INavigationService navigationService, QuestionSetDataModel questions)
         {
@@ -37,10 +36,7 @@ namespace dobra3.Sdk.ViewModels.Views
                 });
             }
 
-            _questionsEnumerator = Questions.GetEnumerator();
-            _questionsEnumerator.MoveNext();
-            CurrentQuestion = Questions.FirstOrDefault();
-
+            CurrentQuestion = Questions[_questionIndex];
             return Task.CompletedTask;
         }
 
@@ -71,16 +67,23 @@ namespace dobra3.Sdk.ViewModels.Views
 
         private async Task AnswerAsync(int index)
         {
-            var answer = _CurrentQuestion.Answers[index];
+            if (CurrentQuestion is null)
+                return;
+
+            var answer = CurrentQuestion.Answers[index];
             answer.IsSelected = true;
 
+            // Pressure wait
             await Task.Delay(1000);
 
-            _questionsEnumerator.MoveNext();
-            if (!answer.IsCorrect || _questionsEnumerator.Current is null)
+            if (!answer.IsCorrect)
                 await _navigationService.NavigateAsync(new GameOverHostViewModel());
+
+            _questionIndex++;
+            if (_questionIndex >= Questions.Count)
+                await _navigationService.NavigateAsync(new GameWonHostViewModel() { WonAmount = 10m });
             else
-                _CurrentQuestion = _questionsEnumerator.Current;
+                CurrentQuestion = Questions[_questionIndex];
         }
     }
 }
