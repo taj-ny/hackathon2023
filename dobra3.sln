@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dobra3", "dobra3\dobra3.csproj", "{327F4C06-FB4E-49EB-A7C9-62619F7D1957}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dobra3", "dobra3\dobra3.csproj", "{327F4C06-FB4E-49EB-A7C9-62619F7D1957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dobra3.Sdk", "dobra3.Sdk\dobra3.Sdk.csproj", "{D2030462-0D5C-4377-9405-9DDFB39C647F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{327F4C06-FB4E-49EB-A7C9-62619F7D1957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{327F4C06-FB4E-49EB-A7C9-62619F7D1957}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{327F4C06-FB4E-49EB-A7C9-62619F7D1957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2009C32C-0061-4B6F-A708-5B7822A57315}
 	EndGlobalSection
 EndGlobal

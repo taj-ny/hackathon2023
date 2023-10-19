@@ -1,28 +1,42 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using dobra3.ViewModels;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using dobra3.Views;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
-namespace dobra3;
-
-public partial class App : Application
+namespace dobra3
 {
-    public override void Initialize()
+    public partial class App : Application
     {
-        AvaloniaXamlLoader.Load(this);
-    }
+        private IServiceProvider? _serviceProvider;
 
-    public override void OnFrameworkInitializationCompleted()
-    {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        public override void Initialize()
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainWindowViewModel(),
-            };
+            AvaloniaXamlLoader.Load(this);
         }
 
-        base.OnFrameworkInitializationCompleted();
+        public override void OnFrameworkInitializationCompleted()
+        {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            {
+                desktop.MainWindow = new MainWindow();
+
+                _serviceProvider = ConfigureServices();
+                Ioc.Default.ConfigureServices(_serviceProvider);
+            }
+
+            base.OnFrameworkInitializationCompleted();
+        }
+
+        private IServiceProvider ConfigureServices()
+        {
+            var serviceCollection = new ServiceCollection()
+                // Add services here
+                ;
+
+            return serviceCollection.BuildServiceProvider();
+        }
     }
 }

@@ -1,11 +1,21 @@
 using Avalonia.Controls;
+using dobra3.Sdk.ViewModels;
 
-namespace dobra3.Views;
-
-public partial class MainWindow : Window
+namespace dobra3.Views
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        public MainViewModel ViewModel
+        {
+            get => (MainViewModel)DataContext;
+            set => ViewModel = value;
+        }
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            ViewModel = new();
+        }
     }
 }
