@@ -1,11 +1,9 @@
 ﻿using Avalonia.Data.Converters;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using dobra3.Sdk.Enums;
 using System;
 using System.Globalization;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 
 namespace dobra3.ValueConverters
 {
@@ -18,8 +16,8 @@ namespace dobra3.ValueConverters
 
             return senderType switch
             {
-                SenderType.Player => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/user-128.png"))),
-                SenderType.Friend => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/pawel-nierodka-w-ramce.png"))),
+                SenderType.Player => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/Player.png"))),
+                SenderType.Friend => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/Friend.png"))),
                 _ => null
             };
         }

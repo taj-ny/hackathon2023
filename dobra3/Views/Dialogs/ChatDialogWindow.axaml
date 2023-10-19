@@ -9,6 +9,8 @@
     xmlns:vm="using:dobra3.Sdk.ViewModels"
     xmlns:vmd="using:dobra3.Sdk.ViewModels.Dialogs"
     Title="ChatDialogWindow"
+    MinWidth="600"
+    MaxWidth="850"
     d:DesignHeight="450"
     d:DesignWidth="800"
     ExtendClientAreaToDecorationsHint="True"
@@ -61,14 +63,18 @@
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:ChatBubbleViewModel">
-                            <Grid>
+                            <Grid MaxWidth="600" HorizontalAlignment="Left">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="0" CornerRadius="12">
-                                    <Image VerticalAlignment="Top" Width="32" Source="{Binding SenderType, Converter={StaticResource SenderTypeToBitmapConverter}}" />
+                                <Border
+                                    Grid.Column="0"
+                                    Margin="0,0,12,8"
+                                    VerticalAlignment="Bottom"
+                                    CornerRadius="12">
+                                    <Image Width="32" Source="{Binding SenderType, Converter={StaticResource SenderTypeToBitmapConverter}}" />
                                 </Border>
 
                                 <Border
@@ -77,7 +83,6 @@
                                     Padding="6"
                                     Background="{Binding SenderType, Converter={StaticResource SenderTypeToBrushConverter}}"
                                     CornerRadius="8">
-
                                     <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
                                 </Border>
                             </Grid>
