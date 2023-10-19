@@ -16,7 +16,7 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <vc:SenderTypeToImageConverter x:Key="SenderTypeToImageConverter" />
+        <vc:SenderTypeToBitmapConverter x:Key="SenderTypeToBitmapConverter" />
     </Window.Resources>
 
     <Panel>
@@ -67,11 +67,11 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Border Grid.Column="0" CornerRadius="12">
-                                    <Image Source="{Binding SenderType, Converter={StaticResource SenderTypeToImageConverter}}" />
+                                    <Image VerticalAlignment="Top" Width="32" Source="{Binding SenderType, Converter={StaticResource SenderTypeToBitmapConverter}}" />
                                 </Border>
 
                                 <Border
-                                    Grid.Column="0"
+                                    Grid.Column="1"
                                     Margin="0,18,0,0"
                                     Padding="4"
                                     Background="Gray"

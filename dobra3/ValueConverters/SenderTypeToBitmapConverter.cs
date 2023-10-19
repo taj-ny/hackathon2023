@@ -2,10 +2,14 @@
 using dobra3.Sdk.Enums;
 using System;
 using System.Globalization;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 
 namespace dobra3.ValueConverters
 {
-    internal sealed class SenderTypeToImageConverter : IValueConverter
+    internal sealed class SenderTypeToBitmapConverter : IValueConverter
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
@@ -14,8 +18,8 @@ namespace dobra3.ValueConverters
 
             return senderType switch
             {
-                SenderType.Player => null,
-                SenderType.Friend => null,
+                SenderType.Player => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/user-128.png"))),
+                SenderType.Friend => new Bitmap(AssetLoader.Open(new("avares://dobra3/Assets/pawel-nierodka-w-ramce.png"))),
                 _ => null
             };
         }
