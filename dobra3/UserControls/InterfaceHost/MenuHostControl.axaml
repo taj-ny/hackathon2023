@@ -3,6 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="https://github.com/projektanker/icons.avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="using:dobra3.UserControls.InterfaceHost"
     d:DesignHeight="450"
@@ -45,9 +46,10 @@
                 HorizontalContentAlignment="Center"
                 Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}"
                 Content="Rozpocznij" />
-            <Button Padding="15" Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}">
-                *
-            </Button>
+            <Button
+                VerticalAlignment="Stretch"
+                i:Attached.Icon="fa-solid fa-gear"
+                Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}" />
         </StackPanel>
 
 
