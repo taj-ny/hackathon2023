@@ -23,7 +23,7 @@
 
         <Panel Margin="40">
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
                     <Label
                         VerticalAlignment="Center"
                         Content="Klucz do api OpenAI:"
