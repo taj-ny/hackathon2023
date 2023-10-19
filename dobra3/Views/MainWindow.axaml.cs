@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using dobra3.Sdk.ViewModels;
 
 namespace dobra3.Views
 {

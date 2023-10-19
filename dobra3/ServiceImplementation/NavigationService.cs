@@ -25,10 +25,10 @@ namespace dobra3.ServiceImplementation
         public INavigationControl? NavigationControl { get; set; }
 
         /// <inheritdoc/>
-        public INavigationTarget? CurrentTarget { get; protected set; }
+        public INavigationTarget? CurrentTarget { get; set; }
 
         /// <inheritdoc/>
-        public ICollection<INavigationTarget> Targets { get; protected set; }
+        public ICollection<INavigationTarget> Targets { get; set; }
 
         /// <inheritdoc/>
         public bool IsInitialized => NavigationControl is not null;

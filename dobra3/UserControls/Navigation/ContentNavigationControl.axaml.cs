@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace dobra3.UserControls.Navigation
 {
-    public partial class ContentNavigationControl : UserControl
+    public partial class ContentNavigationControl : UserControl, INavigationControl
     {
         public ContentNavigationControl()
         {

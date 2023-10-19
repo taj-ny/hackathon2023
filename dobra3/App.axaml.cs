@@ -2,6 +2,8 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using dobra3.Sdk.Services;
+using dobra3.ServiceImplementation;
 using dobra3.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -33,7 +35,7 @@ namespace dobra3
         private IServiceProvider ConfigureServices()
         {
             var serviceCollection = new ServiceCollection()
-                // Add services here
+                .AddTransient<INavigationService, AvaloniaNavigationService>()
                 ;
 
             return serviceCollection.BuildServiceProvider();
