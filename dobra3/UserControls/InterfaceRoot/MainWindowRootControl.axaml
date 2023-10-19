@@ -2,8 +2,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uch="using:dobra3.UserControls.InterfaceHost"
+             xmlns:ucn="using:dobra3.UserControls.Navigation"
+             xmlns:ts="using:dobra3.TemplateSelectors"
+             xmlns:vm="using:dobra3.Sdk.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="dobra3.UserControls.InterfaceRoot.MainWindowRootControl">
-
-
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="GameHostDataTemplate" x:DataType="{x:Type vm:GameHostViewModel}">
+            <uch:GameHostControl ViewModel="{Binding .}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="MenuHostDataTemplate" x:DataType="{x:Type vm:MenuHostViewModel}">
+            <uch:MenuHostControl ViewModel="{Binding .}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <ucn:RootNavigationControl x:Name="Navigation">
+        <ucn:RootNavigationControl.TemplateSelector>
+            <ts:InterfaceRootTemplateSelector  GameHostTemplate="{StaticResource GameHostDataTemplate}" MenuHostTemplate="{StaticResource MenuHostDataTemplate}"/>
+        </ucn:RootNavigationControl.TemplateSelector>
+    </ucn:RootNavigationControl>
 </UserControl>

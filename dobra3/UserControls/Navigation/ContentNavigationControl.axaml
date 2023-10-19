@@ -11,5 +11,5 @@
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch"
         x:FieldModifier="protected"
-        ContentTemplateSelector="{Binding TemplateSelector, Mode=OneWay}" />
+        ContentTemplate="{Binding TemplateSelector, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
 </UserControl>

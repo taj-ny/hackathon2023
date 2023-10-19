@@ -1,6 +1,8 @@
 using Avalonia.Controls;
 using System;
 using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Controls.Templates;
 
 namespace dobra3.UserControls.Navigation
 {
@@ -28,12 +30,13 @@ namespace dobra3.UserControls.Navigation
 
         protected abstract Task<IAsyncDisposable?> ApplyTransitionAsync<TTarget, TTransition>(TTarget? target, TTransition? transition = default) where TTransition : class;
 
-        public DataTemplateSelector? TemplateSelector
+        public IDataTemplate? TemplateSelector
         {
-            get => (DataTemplateSelector?)GetValue(TemplateSelectorProperty);
+            get => (IDataTemplate?)GetValue(TemplateSelectorProperty);
             set => SetValue(TemplateSelectorProperty, value);
         }
-        public static readonly DependencyProperty TemplateSelectorProperty =
-            DependencyProperty.Register(nameof(TemplateSelector), typeof(DataTemplateSelector), typeof(ContentNavigationControl), new PropertyMetadata(null));
+
+        public static readonly StyledProperty<IDataTemplate> TemplateSelectorProperty =
+            AvaloniaProperty.Register<ContentNavigationControl, IDataTemplate>(nameof(TemplateSelector));
     }
 }
