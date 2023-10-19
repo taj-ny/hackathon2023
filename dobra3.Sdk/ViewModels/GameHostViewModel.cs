@@ -21,13 +21,14 @@ namespace dobra3.Sdk.ViewModels
 
         public Task InitAsync(CancellationToken cancellationToken = default)
         {
+            foreach (var item in _questions.Questions)
+            {
+                Questions.Add(new());
+            }
+
             return Task.CompletedTask;
         }
 
-        public Task InitAsync(CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
 
         [RelayCommand]
         public async Task A_AnswerAsync()
