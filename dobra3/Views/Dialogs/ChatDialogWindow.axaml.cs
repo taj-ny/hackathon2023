@@ -37,8 +37,9 @@ namespace dobra3.Views.Dialogs
         {
             if (e.Key == Key.Enter && sender is TextBox textBox)
             {
+                var text = textBox.Text;
                 textBox.Clear();
-                await ViewModel.SendCommand.ExecuteAsync(textBox.Text);
+                await ViewModel.SendCommand.ExecuteAsync(text);
             }
         }
     }

@@ -28,8 +28,8 @@
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
 				<ItemsControl 
