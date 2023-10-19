@@ -31,7 +31,7 @@
 				<ItemsControl Grid.Row="0" ItemsSource="{Binding ViewModel.Bubbles, RelativeSource={RelativeSource AncestorType={x:Type dlg:ChatDialogWindow}}}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="vm:ChatBubbleViewModel">
-							<Border>
+							<Border Background="Gray" CornerRadius="8">
 								<TextBlock Text="{Binding Message}" />
 							</Border>
 						</DataTemplate>
