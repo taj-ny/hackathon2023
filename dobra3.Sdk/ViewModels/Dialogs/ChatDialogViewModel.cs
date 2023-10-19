@@ -2,6 +2,7 @@
 using dobra3.Shared.Utils;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
+using dobra3.Sdk.AppModels;
 using dobra3.Shared.Api;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
@@ -77,7 +78,7 @@ namespace dobra3.Sdk.ViewModels.Dialogs
 
         private async Task<string> QuestionFriend()
         {
-            var api = new OpenAI_API.OpenAIAPI(ApiKeys.GetOpenAiKey());
+            var api = new OpenAI_API.OpenAIAPI(GameStateModel.OpenAiKey);
             try
             {
                 var result = await api.Chat.CreateChatCompletionAsync(new ChatRequest()
