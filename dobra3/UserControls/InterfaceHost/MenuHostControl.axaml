@@ -1,10 +1,54 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:uc="using:dobra3.UserControls.InterfaceHost"
-             x:Class="dobra3.UserControls.InterfaceHost.MenuHostControl">
-  
-    <Button Content="Rozpocznij" Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}"></Button>
+<UserControl
+    x:Class="dobra3.UserControls.InterfaceHost.MenuHostControl"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:dobra3.UserControls.InterfaceHost"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="80">
+            <Bold>Milionerzy</Bold>
+        </TextBlock>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            Orientation="Horizontal">
+            <Button
+                Padding="15"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}"
+                Content="Rozpocznij" />
+            <Button Padding="15" Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}">
+                *
+            </Button>
+        </StackPanel>
+
+
+    </Grid>
 </UserControl>

@@ -35,4 +35,11 @@
     <ItemGroup>
       <ProjectReference Include="..\dobra3.Sdk\dobra3.Sdk.csproj" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Compile Update="Views\Dialogs\SettingsDialogWindow.axaml.cs">
+        <DependentUpon>SettingsDialogWindow.axaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>
