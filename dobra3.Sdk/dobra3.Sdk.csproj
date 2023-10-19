@@ -10,4 +10,8 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\dobra3.Shared\dobra3.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
