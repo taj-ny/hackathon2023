@@ -9,6 +9,7 @@ namespace dobra3.Sdk.ViewModels
         [ObservableProperty] private bool _IsSplitUsed;
         [ObservableProperty] private bool _IsCallUsed;
 
+        [RelayCommand]
         private async Task VoteAsync()
         {
         }

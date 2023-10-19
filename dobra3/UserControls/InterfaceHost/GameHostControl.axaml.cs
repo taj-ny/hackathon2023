@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using dobra3.Sdk.ViewModels.Views;
 
 namespace dobra3.UserControls.InterfaceHost
