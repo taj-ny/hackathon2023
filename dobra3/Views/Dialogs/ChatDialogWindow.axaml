@@ -1,78 +1,109 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:dlg="using:dobra3.Views.Dialogs"
-        xmlns:vmd="using:dobra3.Sdk.ViewModels.Dialogs"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="dobra3.Views.Dialogs.ChatDialogWindow"
-        ExtendClientAreaToDecorationsHint="True"
-        TransparencyLevelHint="AcrylicBlur"
-        xmlns:vm="using:dobra3.Sdk.ViewModels"
-        Title="ChatDialogWindow">
+<Window
+    x:Class="dobra3.Views.Dialogs.ChatDialogWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dlg="using:dobra3.Views.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vc="using:dobra3.ValueConverters"
+    xmlns:vm="using:dobra3.Sdk.ViewModels"
+    xmlns:vmd="using:dobra3.Sdk.ViewModels.Dialogs"
+    Title="ChatDialogWindow"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    ExtendClientAreaToDecorationsHint="True"
+    TransparencyLevelHint="AcrylicBlur"
+    mc:Ignorable="d">
 
-	<Panel>
-		<ProgressBar 
-			IsIndeterminate="True"
-			x:DataType="vmd:ChatDialogViewModel"
-			IsVisible="{Binding IsWritingResponse, RelativeSource={RelativeSource DataContext}}"
-			HorizontalAlignment="Stretch"
-			VerticalAlignment="Top"
-			ZIndex="10000"/>
-		
-		<ExperimentalAcrylicBorder IsHitTestVisible="False">
-			<ExperimentalAcrylicBorder.Material>
-				<ExperimentalAcrylicMaterial
+    <Window.Resources>
+        <vc:SenderTypeToImageConverter x:Key="SenderTypeToImageConverter" />
+    </Window.Resources>
+
+    <Panel>
+        <ProgressBar
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            x:DataType="vmd:ChatDialogViewModel"
+            IsIndeterminate="True"
+            IsVisible="{Binding IsWritingResponse, RelativeSource={RelativeSource DataContext}}"
+            ZIndex="10000" />
+
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
                     BackgroundSource="Digger"
                     MaterialOpacity="0.65"
                     TintColor="Black"
                     TintOpacity="1" />
-			</ExperimentalAcrylicBorder.Material>
-		</ExperimentalAcrylicBorder>
-		<Border Padding="8">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition Height="40"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <Border Padding="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-				<ItemsControl 
-					Grid.Row="0" 
-					x:DataType="vmd:ChatDialogViewModel"
-					ItemsSource="{Binding Bubbles, RelativeSource={RelativeSource DataContext}}">
-					<ItemsControl.ItemTemplate>
-						<DataTemplate x:DataType="vm:ChatBubbleViewModel">
-							<Border Background="Gray" CornerRadius="8" Padding="4" Margin="0 18 0 0">
-								<TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
-							</Border>
-						</DataTemplate>
-					</ItemsControl.ItemTemplate>
-				</ItemsControl>
+                <ItemsControl
+                    Grid.Row="0"
+                    x:DataType="vmd:ChatDialogViewModel"
+                    ItemsSource="{Binding Bubbles, RelativeSource={RelativeSource DataContext}}">
+                    <ItemsControl.ItemContainerTheme>
+                        <ControlTheme TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </ControlTheme>
+                    </ItemsControl.ItemContainerTheme>
 
-				<Grid Grid.Row="1" Grid.ColumnSpan="2">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition Width="64" />
-					</Grid.ColumnDefinitions>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ChatBubbleViewModel">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-					<TextBox
-						Grid.Column="0" 
-						KeyDown="InputElement_KeyDown"
-						x:DataType="vmd:ChatDialogViewModel"
-						IsEnabled="{Binding !IsWritingResponse, RelativeSource={RelativeSource DataContext}}" />
-					<TextBlock
-						VerticalAlignment="Center"
-						HorizontalAlignment="Center"
-						FontSize="22"
-						Grid.Column="1"
-						x:DataType="vmd:ChatDialogViewModel"
-						Text="{Binding CurrentTime, RelativeSource={RelativeSource DataContext}}"/>
-				</Grid>
-			</Grid>
-		</Border>
-	</Panel>
+                                <Border Grid.Column="0" CornerRadius="12">
+                                    <Image Source="{Binding SenderType, Converter={StaticResource SenderTypeToImageConverter}}" />
+                                </Border>
+
+                                <Border
+                                    Grid.Column="0"
+                                    Margin="0,18,0,0"
+                                    Padding="4"
+                                    Background="Gray"
+                                    CornerRadius="8">
+
+                                    <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="64" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        Grid.Column="0"
+                        x:DataType="vmd:ChatDialogViewModel"
+                        IsEnabled="{Binding !IsWritingResponse, RelativeSource={RelativeSource DataContext}}"
+                        KeyDown="InputElement_KeyDown" />
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:DataType="vmd:ChatDialogViewModel"
+                        FontSize="22"
+                        Text="{Binding CurrentTime, RelativeSource={RelativeSource DataContext}}" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Panel>
 </Window>
