@@ -9,6 +9,8 @@ namespace dobra3.Sdk.ViewModels
         [ObservableProperty] private bool _IsSplitUsed;
         [ObservableProperty] private bool _IsCallUsed;
 
+        public QuestionViewModel? CurrentQuestion { get; set; }
+
         private async Task VoteAsync()
         {
         }

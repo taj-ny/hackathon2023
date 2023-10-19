@@ -27,6 +27,11 @@ namespace dobra3.Sdk.ViewModels.Views
             LiveLineViewModel = new();
         }
 
+        partial void OnCurrentQuestionChanged(QuestionViewModel? value)
+        {
+            LiveLineViewModel.CurrentQuestion = value;
+        }
+
         public Task InitAsync(CancellationToken cancellationToken = default)
         {
             foreach (var item in _questions.Questions)
