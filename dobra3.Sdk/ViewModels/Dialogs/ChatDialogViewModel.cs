@@ -15,13 +15,8 @@ namespace dobra3.Sdk.ViewModels.Dialogs
 
         public ChatDialogViewModel()
         {
-            Bubbles = new()
-            {
-                new () { Message = "abc" },
-                new () { Message = "abcasdasd" },
-                new () { Message = "abcasdasdasaa" },
-            };
-            _CurrentTime = 5;
+            Bubbles = new();
+            _CurrentTime = 60;
             _periodicTimer = new(TimeSpan.FromMilliseconds(1000));
         }
 
