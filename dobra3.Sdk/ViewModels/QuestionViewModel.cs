@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using dobra3.Sdk.DataModels;
 using System.Collections.ObjectModel;
 
 namespace dobra3.Sdk.ViewModels

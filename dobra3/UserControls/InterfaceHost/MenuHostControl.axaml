@@ -17,13 +17,11 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-
 
         <TextBlock
             Grid.Row="0"

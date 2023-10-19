@@ -16,14 +16,16 @@ namespace dobra3.Sdk.ViewModels.Views
 
         [ObservableProperty] private ObservableCollection<QuestionViewModel> _Questions;
         [ObservableProperty] private QuestionViewModel? _CurrentQuestion;
+        [ObservableProperty] private ScoreViewModel _ScoreViewModel;
 
-        public LiveLineViewModel LiveLineViewModel { get; set; }
+        public LiveLineViewModel LiveLineViewModel { get; }
 
         public GameHostViewModel(INavigationService navigationService, QuestionSetDataModel questions)
         {
             _navigationService = navigationService;
             _questions = questions;
             _Questions = new();
+            _ScoreViewModel = new();
             LiveLineViewModel = new();
         }
 
@@ -88,10 +90,11 @@ namespace dobra3.Sdk.ViewModels.Views
                 await _navigationService.NavigateAsync(new GameOverHostViewModel());
             else
             {
+                ScoreViewModel.AddScore();
                 _questionIndex++;
 
                 if (_questionIndex >= Questions.Count)
-                    await _navigationService.NavigateAsync(new GameWonHostViewModel() { WonAmount = 10m });
+                    await _navigationService.NavigateAsync(new GameWonHostViewModel() { WonAmount = ScoreViewModel.Score });
                 else
                     CurrentQuestion = Questions[_questionIndex];
             }
