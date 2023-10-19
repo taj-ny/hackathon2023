@@ -9,6 +9,6 @@ namespace dobra3.Sdk.DataModels
         public string? Answer { get; set; }
 
         [JsonPropertyName("isCorrect")]
-        public bool? IsCorrect { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

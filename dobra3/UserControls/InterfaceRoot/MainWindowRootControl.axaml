@@ -17,11 +17,17 @@
         <DataTemplate x:Key="MenuHostDataTemplate" x:DataType="vm:MenuHostViewModel">
             <uch:MenuHostControl ViewModel="{Binding .}"/>
         </DataTemplate>
+        <DataTemplate x:Key="GameOverDataTemplate" x:DataType="vm:GameOverViewModel">
+            <uch:GameOverHostControl ViewModel="{Binding .}"/>
+        </DataTemplate>
     </UserControl.Resources>
     
     <ucn:RootNavigationControl x:Name="Navigation">
         <ucn:RootNavigationControl.TemplateSelector>
-            <ts:InterfaceRootTemplateSelector GameHostTemplate="{StaticResource GameHostDataTemplate}" MenuHostTemplate="{StaticResource MenuHostDataTemplate}"/>
+            <ts:InterfaceRootTemplateSelector 
+                GameHostTemplate="{StaticResource GameHostDataTemplate}"
+                MenuHostTemplate="{StaticResource MenuHostDataTemplate}"
+                GameOverHostTemplate="{StaticResource GameOverDataTemplate}"/>
         </ucn:RootNavigationControl.TemplateSelector>
     </ucn:RootNavigationControl>
 </UserControl>

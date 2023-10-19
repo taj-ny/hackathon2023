@@ -9,13 +9,15 @@ namespace dobra3.TemplateSelectors
     {
         public DataTemplate? MenuHostTemplate { get; set; }
         public DataTemplate? GameHostTemplate { get; set; }
+        public DataTemplate? GameOverHostTemplate { get; set; }
         
         protected override IDataTemplate? SelectTemplateCore(INotifyPropertyChanged? item)
         {
             return item switch
             {
                 MenuHostViewModel => MenuHostTemplate,
-                GameHostViewModel => GameHostTemplate
+                GameHostViewModel => GameHostTemplate,
+                GameOverViewModel => GameOverHostTemplate
             };
         }
     }

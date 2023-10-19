@@ -21,7 +21,7 @@ namespace dobra3.Sdk.ViewModels
             using var stream = Assembly.GetEntryAssembly()!.GetManifestResourceStream("dobra3.Assets.DefaultQuestions.TestQuestions.json");
             var questions = (QuestionSetDataModel?)await StreamSerializer.Instance.DeserializeAsync(stream, typeof(QuestionSetDataModel), cancellationToken);
             
-            await _navigationService.NavigateAsync(new GameHostViewModel(questions));
+            await _navigationService.NavigateAsync(new GameHostViewModel(_navigationService, questions));
         }
     }
 }
