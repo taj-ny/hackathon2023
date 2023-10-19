@@ -29,6 +29,7 @@
 		    <Button 
 			    HorizontalAlignment="Stretch"
 			    Padding="10"
+			    Command="{Binding ViewModel.LiveLineViewModel.SplitCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"
 			    IsEnabled="{Binding !ViewModel.LiveLineViewModel.IsSplitUsed, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 			    <StackPanel Orientation="Horizontal" Spacing="10">
 				    <!-- Icon -->
@@ -56,6 +57,7 @@
 			    <Button 
 				    HorizontalAlignment="Stretch"
 				    Padding="10"
+				    IsEnabled="{Binding !ViewModel.CurrentQuestion.Answers[0].IsExcluded, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}}"
 				    Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 				    <StackPanel Orientation="Horizontal" Spacing="5">
 					    <TextBlock FontWeight="Bold" Text="A"/>
@@ -66,6 +68,7 @@
 			    <Button 
 				    HorizontalAlignment="Stretch"
 				    Padding="10"
+				    IsEnabled="{Binding !ViewModel.CurrentQuestion.Answers[1].IsExcluded, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}}"
 				    Command="{Binding ViewModel.B_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 				    <StackPanel Orientation="Horizontal" Spacing="5">
 					    <TextBlock FontWeight="Bold" Text="B"/>
@@ -76,6 +79,7 @@
 			    <Button 
 				    HorizontalAlignment="Stretch"
 				    Padding="10"
+				    IsEnabled="{Binding !ViewModel.CurrentQuestion.Answers[2].IsExcluded, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}}"
 				    Command="{Binding ViewModel.C_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 				    <StackPanel Orientation="Horizontal" Spacing="5">
 					    <TextBlock FontWeight="Bold" Text="C"/>
@@ -86,6 +90,7 @@
 			    <Button 
 				    HorizontalAlignment="Stretch"
 				    Padding="10"
+				    IsEnabled="{Binding !ViewModel.CurrentQuestion.Answers[3].IsExcluded, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}}"
 				    Command="{Binding ViewModel.D_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 				    <StackPanel Orientation="Horizontal" Spacing="5">
 					    <TextBlock FontWeight="Bold" Text="D"/>

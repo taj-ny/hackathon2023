@@ -6,6 +6,7 @@ namespace dobra3.Sdk.ViewModels
     {
         [ObservableProperty] private bool _IsCorrect;
         [ObservableProperty] private bool _IsSelected;
+        [ObservableProperty] private bool _IsExcluded;
         [ObservableProperty] private string _Text;
     }
 }
