@@ -14,9 +14,14 @@ namespace dobra3.Sdk.ViewModels
         [ObservableProperty] private ObservableCollection<QuestionViewModel> _Questions;
         [ObservableProperty] private QuestionViewModel _CurrentQuestion;
 
-        public GameHostViewModel()
+        public GameHostViewModel(QuestionSetDataModel questions)
         {
-            
+            _questions = questions;
+        }
+
+        public Task InitAsync(CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
         }
 
         public Task InitAsync(CancellationToken cancellationToken = default)
