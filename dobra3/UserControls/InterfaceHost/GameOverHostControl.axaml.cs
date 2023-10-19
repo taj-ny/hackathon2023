@@ -1,20 +1,20 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using dobra3.Sdk.ViewModels;
+using dobra3.Sdk.ViewModels.Views;
 
 namespace dobra3.UserControls.InterfaceHost
 {
     public partial class GameOverHostControl : UserControl
     {
-        public GameOverViewModel ViewModel
+        public GameOverHostViewModel ViewModel
         {
-            get => (GameOverViewModel)DataContext;
+            get => (GameOverHostViewModel)DataContext;
             set => DataContext = value;
         }
 
-        public static readonly StyledProperty<GameOverViewModel> ViewModelProperty =
-            AvaloniaProperty.Register<GameHostControl, GameOverViewModel>(nameof(ViewModel));
+        public static readonly StyledProperty<GameOverHostViewModel> ViewModelProperty =
+            AvaloniaProperty.Register<GameHostControl, GameOverHostViewModel>(nameof(ViewModel));
         
         public GameOverHostControl()
         {

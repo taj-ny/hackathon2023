@@ -5,7 +5,7 @@ using dobra3.Sdk.DataModels;
 using dobra3.Sdk.Services;
 using dobra3.Shared.Utils;
 
-namespace dobra3.Sdk.ViewModels
+namespace dobra3.Sdk.ViewModels.Views
 {
     public sealed partial class GameHostViewModel : BasePageViewModel, IAsyncInitialize
     {
@@ -78,7 +78,7 @@ namespace dobra3.Sdk.ViewModels
 
             _questionsEnumerator.MoveNext();
             if (!answer.IsCorrect || _questionsEnumerator.Current is null)
-                await _navigationService.NavigateAsync(new GameOverViewModel());
+                await _navigationService.NavigateAsync(new GameOverHostViewModel());
             else
                 _CurrentQuestion = _questionsEnumerator.Current;
         }

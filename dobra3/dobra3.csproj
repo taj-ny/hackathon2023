@@ -39,6 +39,9 @@
 
 
     <ItemGroup>
+      <Compile Update="UserControls\InterfaceHost\GameWonHostControl.axaml.cs">
+        <DependentUpon>GameWonHostControl.axaml</DependentUpon>
+      </Compile>
       <Compile Update="Views\Dialogs\SettingsDialogWindow.axaml.cs">
         <DependentUpon>SettingsDialogWindow.axaml</DependentUpon>
       </Compile>

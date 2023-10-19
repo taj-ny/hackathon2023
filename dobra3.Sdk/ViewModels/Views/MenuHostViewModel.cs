@@ -5,7 +5,7 @@ using dobra3.Sdk.AppModels;
 using dobra3.Sdk.DataModels;
 using dobra3.Sdk.Services;
 
-namespace dobra3.Sdk.ViewModels
+namespace dobra3.Sdk.ViewModels.Views
 {
     public sealed partial class MenuHostViewModel : BasePageViewModel
     {
