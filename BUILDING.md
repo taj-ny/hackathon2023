@@ -9,7 +9,7 @@
   - Ensure that the following build settings match your configuration (toolbar):
     - Selected "Any CPU"
     - Startup project set to dobra3 (You can change the startup project by opening Solution Explorer > Right click dobra3 > "Set as startup project"<br/>
-    ![image](https://user-images.githubusercontent.com/53011783/216189292-474db056-0e3b-419d-baae-e86e27b7a7e7.png)
+    ![image](https://github.com/taj-ny/dobra3/assets/53011783/1e559bee-95ce-4ec0-b96c-259806d238c4)
   
 #### Building with Rider
   - Launch Rider
