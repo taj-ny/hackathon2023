@@ -12,11 +12,12 @@ namespace dobra3.Sdk.ViewModels
         private readonly QuestionSetDataModel _questions;
 
         [ObservableProperty] private ObservableCollection<QuestionViewModel> _Questions;
-        [ObservableProperty] private QuestionViewModel _CurrentQuestion;
+        [ObservableProperty] private QuestionViewModel? _CurrentQuestion;
 
         public GameHostViewModel(QuestionSetDataModel questions)
         {
             _questions = questions;
+            _Questions = new();
         }
 
         public Task InitAsync(CancellationToken cancellationToken = default)
@@ -31,6 +32,8 @@ namespace dobra3.Sdk.ViewModels
                 });
             }
 
+            CurrentQuestion = Questions.FirstOrDefault();
+
             return Task.CompletedTask;
         }
 
@@ -38,7 +41,7 @@ namespace dobra3.Sdk.ViewModels
         [RelayCommand]
         public async Task A_AnswerAsync()
         {
-            // todo
+
         }
 
         [RelayCommand]
