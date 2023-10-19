@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
@@ -31,7 +30,7 @@ namespace dobra3.Sdk.ViewModels
         
         public LiveLineViewModel()
         {
-            Votes = new();
+            Votes = new() { "0%", "0%", "0%", "0%" };
         }
 
         [RelayCommand]
@@ -54,7 +53,7 @@ namespace dobra3.Sdk.ViewModels
             }
             else
             {
-                // Vote for two random answers
+                // Vote for the correct answer and one incorrect answer
                 var answers = votes.Keys.ToList()
                     .Where(x => !x.IsCorrect)
                     .OrderBy(x => Guid.NewGuid().ToString())
@@ -75,10 +74,9 @@ namespace dobra3.Sdk.ViewModels
                 votes[votes.ElementAt(Random.Shared.Next(0, votes.Count)).Key] += votesToAdd;
                 remainingVotes -= votesToAdd;
             }
-
-            Votes.Clear();
-            foreach (var vote in votes.Values)
-                Votes.Add($"{vote}%");
+            
+            for (var i = 0; i < votes.Count; i++)
+                Votes[i] = $"{votes.ElementAt(i).Value}%";
 
             DisplayVotingResults = true;
             IsVoteUsed = true;

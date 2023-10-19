@@ -38,7 +38,7 @@
                         Text="Plik z pytaniami: "
                         FontWeight="Bold" />
                     <Button Content="Wybierz"
-                            Command="{Binding ViewModel.SelectQuestionsFileCommand, RelativeSource={RelativeSource AncestorType={x:Type dlg:SettingsDialogWindow}}}" />
+                            Click="Button_OnClick" />
 					<TextBlock
                         Text="{Binding ViewModel.QuestionsFileName, RelativeSource={RelativeSource AncestorType={x:Type dlg:SettingsDialogWindow}}}"
                         VerticalAlignment="Center"
