@@ -1,12 +1,13 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Templates;
+using dobra3.Utils;
 using System;
 using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls.Templates;
 
 namespace dobra3.UserControls.Navigation
 {
-    public abstract partial class ContentNavigationControl : UserControl
+    public abstract partial class ContentNavigationControl : UserControl, INavigationControl
     {
         public ContentNavigationControl()
         {
@@ -15,13 +16,9 @@ namespace dobra3.UserControls.Navigation
 
         public virtual async Task<bool> NavigateAsync<TTarget, TTransition>(TTarget? target, TTransition? transition = default) where TTransition : class
         {
-            // Get the transition finalizer which will be used to end the transition
             var transitionFinalizer = await ApplyTransitionAsync(target, transition);
-
-            // Navigate by setting the content
             MainContent.Content = target;
 
-            // End the transition
             if (transitionFinalizer is not null)
                 await transitionFinalizer.DisposeAsync();
 
@@ -29,6 +26,11 @@ namespace dobra3.UserControls.Navigation
         }
 
         protected abstract Task<IAsyncDisposable?> ApplyTransitionAsync<TTarget, TTransition>(TTarget? target, TTransition? transition = default) where TTransition : class;
+
+        public void Dispose()
+        {
+            (MainContent.Content as IDisposable)?.Dispose();
+        }
 
         public IDataTemplate? TemplateSelector
         {

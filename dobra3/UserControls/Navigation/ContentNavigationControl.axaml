@@ -10,6 +10,6 @@
         x:Name="MainContent"
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch"
-        x:FieldModifier="protected"
+        x:FieldModifier="public"
         ContentTemplate="{Binding TemplateSelector, Mode=OneWay, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
 </UserControl>

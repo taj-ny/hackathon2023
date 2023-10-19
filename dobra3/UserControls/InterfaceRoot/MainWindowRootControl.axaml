@@ -5,6 +5,7 @@
              xmlns:uch="using:dobra3.UserControls.InterfaceHost"
              xmlns:ucn="using:dobra3.UserControls.Navigation"
              xmlns:ts="using:dobra3.TemplateSelectors"
+             Loaded="Control_Loaded"
              xmlns:vm="using:dobra3.Sdk.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="dobra3.UserControls.InterfaceRoot.MainWindowRootControl">
