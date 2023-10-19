@@ -18,11 +18,14 @@ namespace dobra3.Sdk.ViewModels.Views
 
         private IEnumerator<QuestionViewModel> _questionsEnumerator;
 
+        public LiveLineViewModel LiveLineViewModel { get; set; }
+
         public GameHostViewModel(INavigationService navigationService, QuestionSetDataModel questions)
         {
             _navigationService = navigationService;
             _questions = questions;
             _Questions = new();
+            LiveLineViewModel = new();
         }
 
         public Task InitAsync(CancellationToken cancellationToken = default)

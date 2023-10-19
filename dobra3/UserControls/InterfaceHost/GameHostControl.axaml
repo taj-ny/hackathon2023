@@ -6,35 +6,124 @@
              xmlns:uc="using:dobra3.UserControls.InterfaceHost"
              x:Class="dobra3.UserControls.InterfaceHost.GameHostControl">
   
-    <StackPanel>
-        <TextBlock Text="{Binding ViewModel.CurrentQuestion.Title, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
-
-        <Button Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
-            <StackPanel>
-				<TextBlock Text="A"/>
-				<TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[0].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
-            </StackPanel>
-        </Button>
-
-        <Button Command="{Binding ViewModel.B_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
-            <StackPanel>
-                <TextBlock Text="B"/>
-                <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[1].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
-            </StackPanel>
-        </Button>
-
-        <Button Command="{Binding ViewModel.C_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
-            <StackPanel>
-                <TextBlock Text="C"/>
-                <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[2].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
-            </StackPanel>
-        </Button>
-
-        <Button Command="{Binding ViewModel.D_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
-            <StackPanel>
-                <TextBlock Text="D"/>
-                <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[3].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
-            </StackPanel>
-        </Button>
-    </StackPanel>
+    
+    <Grid Margin="50,0" VerticalAlignment="Center">
+	    <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>  
+			<ColumnDefinition Width="50"/>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="50"/>
+			<ColumnDefinition Width="*"/>  
+		</Grid.ColumnDefinitions>
+	    
+	    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+		    <Button 
+			    HorizontalAlignment="Stretch"
+			    IsEnabled="{Binding !ViewModel.LiveLineViewModel.IsVoteUsed, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+			    <StackPanel Orientation="Horizontal" Spacing="10">
+					<!-- Icon -->
+					<TextBlock Text="Głosowanie" />
+			    </StackPanel>
+		    </Button>
+		    <Button 
+			    HorizontalAlignment="Stretch"
+			    IsEnabled="{Binding !ViewModel.LiveLineViewModel.IsSplitUsed, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+			    <StackPanel Orientation="Horizontal" Spacing="10">
+				    <!-- Icon -->
+				    <TextBlock Text="50/50" />
+			    </StackPanel>
+		    </Button>
+		    <Button 
+			    HorizontalAlignment="Stretch"
+			    IsEnabled="{Binding !ViewModel.LiveLineViewModel.IsCallUsed, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+			    <StackPanel Orientation="Horizontal" Spacing="10">
+				    <!-- Icon -->
+				    <TextBlock Text="Pomoc przyjaciela" />
+			    </StackPanel>
+		    </Button>
+	    </StackPanel>
+	    
+	    <StackPanel Grid.Column="2" Orientation="Vertical">
+		    <TextBlock
+			    FontSize="30"
+			    TextAlignment="Center"
+			    Text="{Binding ViewModel.CurrentQuestion.Title, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
+		    
+		    <StackPanel Orientation="Vertical" Margin="0,50,0,0" Spacing="5">
+			    <Button 
+				    HorizontalAlignment="Stretch"
+				    Padding="10"
+				    Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+				    <StackPanel Orientation="Horizontal" Spacing="5">
+					    <TextBlock FontWeight="Bold" Text="A"/>
+					    <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[0].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
+				    </StackPanel>
+			    </Button>
+			    
+			    <Button 
+				    HorizontalAlignment="Stretch"
+				    Padding="10"
+				    Command="{Binding ViewModel.B_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+				    <StackPanel Orientation="Horizontal" Spacing="5">
+					    <TextBlock FontWeight="Bold" Text="B"/>
+					    <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[1].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
+				    </StackPanel>
+			    </Button>
+			    
+			    <Button 
+				    HorizontalAlignment="Stretch"
+				    Padding="10"
+				    Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+				    <StackPanel Orientation="Horizontal" Spacing="5">
+					    <TextBlock FontWeight="Bold" Text="C"/>
+					    <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[2].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
+				    </StackPanel>
+			    </Button>
+			    
+			    <Button 
+				    HorizontalAlignment="Stretch"
+				    Padding="10"
+				    Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+				    <StackPanel Orientation="Horizontal" Spacing="5">
+					    <TextBlock FontWeight="Bold" Text="D"/>
+					    <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[3].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
+				    </StackPanel>
+			    </Button>
+		    </StackPanel>
+		    
+		    
+	    </StackPanel>
+	    
+	</Grid>
+    <!-- <StackPanel> -->
+    <!--     <TextBlock Text="{Binding ViewModel.CurrentQuestion.Title, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/> -->
+    <!-- -->
+    <!--     <Button Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"> -->
+    <!--         <StackPanel> -->
+				<!-- <TextBlock Text="A"/> -->
+				<!-- <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[0].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/> -->
+    <!--         </StackPanel> -->
+    <!--     </Button> -->
+    <!-- -->
+    <!--     <Button Command="{Binding ViewModel.B_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"> -->
+    <!--         <StackPanel> -->
+    <!--             <TextBlock Text="B"/> -->
+    <!--             <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[1].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/> -->
+    <!--         </StackPanel> -->
+    <!--     </Button> -->
+    <!-- -->
+    <!--     <Button Command="{Binding ViewModel.C_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"> -->
+    <!--         <StackPanel> -->
+    <!--             <TextBlock Text="C"/> -->
+    <!--             <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[2].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/> -->
+    <!--         </StackPanel> -->
+    <!--     </Button> -->
+    <!-- -->
+    <!--     <Button Command="{Binding ViewModel.D_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"> -->
+    <!--         <StackPanel> -->
+    <!--             <TextBlock Text="D"/> -->
+    <!--             <TextBlock Text="{Binding ViewModel.CurrentQuestion.Answers[3].Text, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/> -->
+    <!--         </StackPanel> -->
+    <!--     </Button> -->
+    <!-- </StackPanel> -->
 </UserControl>
