@@ -39,7 +39,7 @@
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="vm:ChatBubbleViewModel">
 							<Border Background="Gray" CornerRadius="8" Padding="4" Margin="0 18 0 0">
-                                    <TextBlock Text="{Binding Message}" />
+								<TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
 							</Border>
 						</DataTemplate>
 					</ItemsControl.ItemTemplate>

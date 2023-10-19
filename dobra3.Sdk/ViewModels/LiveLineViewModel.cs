@@ -100,7 +100,7 @@ namespace dobra3.Sdk.ViewModels
         [RelayCommand]
         private async Task CallAsync()
         {
-            var viewModel = new ChatDialogViewModel();
+            var viewModel = new ChatDialogViewModel(CurrentQuestion);
             await viewModel.InitAsync();
 
             await DialogService.ShowChatDialogAsync(viewModel);
