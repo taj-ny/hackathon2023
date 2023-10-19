@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using dobra3.Sdk.ViewModels.Dialogs;
 
 namespace dobra3.Views.Dialogs
@@ -18,6 +19,14 @@ namespace dobra3.Views.Dialogs
         public ChatDialogWindow()
         {
             InitializeComponent();
+        }
+
+        private async void InputElement_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && sender is TextBox textBox)
+            {
+                await ViewModel.SendCommand.ExecuteAsync(textBox.Text);
+            }
         }
     }
 }

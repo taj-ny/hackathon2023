@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using dobra3.Shared.Utils;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace dobra3.Sdk.ViewModels.Dialogs
 {
@@ -13,9 +10,17 @@ namespace dobra3.Sdk.ViewModels.Dialogs
         private readonly PeriodicTimer _periodicTimer;
 
         [ObservableProperty] private int _CurrentTime;
+        
+        public ObservableCollection<ChatBubbleViewModel> Bubbles { get; }
 
         public ChatDialogViewModel()
         {
+            Bubbles = new()
+            {
+                new () { Message = "abc" },
+                new () { Message = "abcasdasd" },
+                new () { Message = "abcasdasdasaa" },
+            };
             _CurrentTime = 60;
             _periodicTimer = new(TimeSpan.FromMilliseconds(1000));
         }
@@ -28,7 +33,7 @@ namespace dobra3.Sdk.ViewModels.Dialogs
 
         private async Task BeginTimerAsync(CancellationToken cancellationToken)
         {
-            while (await _periodicTimer.WaitForNextTickAsync())
+            while (await _periodicTimer.WaitForNextTickAsync(cancellationToken))
             {
                 CurrentTime--;
 
@@ -37,6 +42,15 @@ namespace dobra3.Sdk.ViewModels.Dialogs
                     _periodicTimer.Dispose();
                 }
             }
+        }
+
+        [RelayCommand]
+        private async Task SendAsync(string? query)
+        {
+            if (string.IsNullOrEmpty(query))
+                return;
+
+
         }
     }
 }

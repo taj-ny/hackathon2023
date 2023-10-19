@@ -7,6 +7,7 @@
         ExtendClientAreaToDecorationsHint="True"
         TransparencyLevelHint="AcrylicBlur"
         xmlns:vm="using:dobra3.Sdk.ViewModels"
+		xmlns:dlg="using:dobra3.Views.Dialogs"
         Title="ChatDialogWindow">
 
 	<Panel>
@@ -26,7 +27,7 @@
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>
 
-				<ItemsControl Grid.Row="0">
+				<ItemsControl Grid.Row="0" ItemsSource="{Binding ViewModel.Bubbles, RelativeSource={RelativeSource AncestorType={x:Type dlg:ChatDialogWindow}}}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="vm:ChatBubbleViewModel">
 							<Border>
@@ -42,13 +43,13 @@
 						<ColumnDefinition Width="64" />
 					</Grid.ColumnDefinitions>
 
-					<TextBox Grid.Column="0" />
+					<TextBox Grid.Column="0" KeyDown="InputElement_KeyDown" />
 					<TextBlock
 						VerticalAlignment="Center"
 						HorizontalAlignment="Center"
 						FontSize="22"
 						Grid.Column="1"
-						Text="60"/>
+						Text="{Binding ViewModel.CurrentTime, RelativeSource={RelativeSource AncestorType={x:Type dlg:ChatDialogWindow}}}"/>
 				</Grid>
 			</Grid>
 		</Border>
