@@ -11,8 +11,48 @@ namespace dobra3.Sdk.ViewModels
 
         public QuestionViewModel? CurrentQuestion { get; set; }
 
+        [RelayCommand]
         private async Task VoteAsync()
         {
+            if (IsVoteUsed)
+                return;
+            
+            var votes = new Dictionary<AnswerViewModel, int>();
+            foreach (var answer in CurrentQuestion.Answers)
+                votes.Add(answer, 0);
+
+            var remainingVotes = 100;
+            if (Random.Shared.Next(0, 10) <= 7) // 80% votes.First(x => x.Key.IsCorrect)
+            {
+                // Vote for correct answer
+                var correctAnswerVotes = Random.Shared.Next(60, 80);
+                remainingVotes -= correctAnswerVotes;
+                votes[votes.First(x => x.Key.IsCorrect).Key] = correctAnswerVotes;
+            }
+            else
+            {
+                // Vote for two random answers
+                var answers = votes.Keys.ToList()
+                    .OrderBy(x => Guid.NewGuid().ToString())
+                    .ToList();
+                votes[answers[0]] = Random.Shared.Next(30, 45);
+                votes[answers[1]] = Random.Shared.Next(30, 45);
+
+                remainingVotes -= votes[answers[0]] + votes[answers[1]];
+            }
+            
+            // Randomly distribute remaining votes
+            while (remainingVotes > 0)
+            {
+                var votesToAdd = Random.Shared.Next(1, 5);
+                if (votesToAdd > remainingVotes)
+                    votesToAdd = remainingVotes;
+                    
+                votes[votes.ElementAt(Random.Shared.Next(0, votes.Count)).Key] += votesToAdd;
+                remainingVotes -= votesToAdd;
+            }
+
+            IsVoteUsed = true;
         }
         
         [RelayCommand]
