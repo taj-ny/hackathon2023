@@ -6,7 +6,7 @@ using Avalonia.Controls.Templates;
 
 namespace dobra3.UserControls.Navigation
 {
-    public abstract partial class ContentNavigationControl : UserControl
+    public partial class ContentNavigationControl : UserControl
     {
         public ContentNavigationControl()
         {
@@ -28,7 +28,10 @@ namespace dobra3.UserControls.Navigation
             return true;
         }
 
-        protected abstract Task<IAsyncDisposable?> ApplyTransitionAsync<TTarget, TTransition>(TTarget? target, TTransition? transition = default) where TTransition : class;
+        protected virtual Task<IAsyncDisposable?> ApplyTransitionAsync<TTarget, TTransition>(TTarget? target, TTransition? transition = default) where TTransition : class
+        {
+            return null;
+        }
 
         public IDataTemplate? TemplateSelector
         {
