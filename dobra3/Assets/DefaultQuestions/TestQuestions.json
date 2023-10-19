@@ -1,0 +1,27 @@
+{
+    "name": "Paweł questions",
+    "questions": [
+        {
+            "question": "Dlaczego w Peru szczają na polskie mandarynki?",
+            "difficulty": 1,
+            "answers": [
+                {
+                    "answer": "Bo są zielone",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Bo są zbyt słodkie",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Aaaa dobra bo 1+1 daje 2",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Bo są zbyt gorzkie",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}
