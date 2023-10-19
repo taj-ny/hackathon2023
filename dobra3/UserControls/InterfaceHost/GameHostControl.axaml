@@ -3,6 +3,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:uc="using:dobra3.UserControls.InterfaceHost"
              x:Class="dobra3.UserControls.InterfaceHost.GameHostControl">
-  Welcome to Avalonia!
+  
+    <Grid>
+		<Button Command="{Binding ViewModel.A_AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
+            <StackPanel>
+				<TextBlock Text="A"/>
+				<TextBlock Text=""/>
+            </StackPanel>
+        </Button>
+		<Button/>
+		<Button/>
+		<Button/>
+    </Grid>
 </UserControl>
