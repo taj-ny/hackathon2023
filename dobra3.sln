@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dobra3", "dobra3\dobra3.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dobra3.Sdk", "dobra3.Sdk\dobra3.Sdk.csproj", "{D2030462-0D5C-4377-9405-9DDFB39C647F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dobra3.Shared", "dobra3.Shared\dobra3.Shared.csproj", "{F38C886F-5282-4FE3-93C7-3ABCFDDE0B4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2030462-0D5C-4377-9405-9DDFB39C647F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38C886F-5282-4FE3-93C7-3ABCFDDE0B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38C886F-5282-4FE3-93C7-3ABCFDDE0B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38C886F-5282-4FE3-93C7-3ABCFDDE0B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38C886F-5282-4FE3-93C7-3ABCFDDE0B4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
