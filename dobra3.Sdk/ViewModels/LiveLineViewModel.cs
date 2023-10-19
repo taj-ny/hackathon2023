@@ -22,7 +22,7 @@ namespace dobra3.Sdk.ViewModels
                 votes.Add(answer, 0);
 
             var remainingVotes = 100;
-            if (Random.Shared.Next(0, 10) <= 7) // 80% votes.First(x => x.Key.IsCorrect)
+            if (Random.Shared.Next(0, 10) <= 7) // 80%
             {
                 // Vote for correct answer
                 var correctAnswerVotes = Random.Shared.Next(60, 80);
