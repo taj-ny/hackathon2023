@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace dobra3.Sdk.DataModels
 {
     [Serializable]
-    public sealed record QuestionDataModel(string? Question, int? Difficulty, List<AnswerDataModel>? Answers)
+    public sealed record QuestionDataModel(string? Question, int Difficulty, List<AnswerDataModel>? Answers)
     {
         [JsonPropertyName("question")]
         public string? Question { get; set; }
 
         [JsonPropertyName("difficulty")]
-        public int? Difficulty { get; set; }
+        public int Difficulty { get; set; }
 
 
         [JsonPropertyName("answers")]
