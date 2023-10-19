@@ -17,11 +17,14 @@ namespace dobra3.Sdk.ViewModels.Views
         [ObservableProperty] private ObservableCollection<QuestionViewModel> _Questions;
         [ObservableProperty] private QuestionViewModel? _CurrentQuestion;
 
+        public LiveLineViewModel LiveLineViewModel { get; set; }
+
         public GameHostViewModel(INavigationService navigationService, QuestionSetDataModel questions)
         {
             _navigationService = navigationService;
             _questions = questions;
             _Questions = new();
+            LiveLineViewModel = new();
         }
 
         public Task InitAsync(CancellationToken cancellationToken = default)
