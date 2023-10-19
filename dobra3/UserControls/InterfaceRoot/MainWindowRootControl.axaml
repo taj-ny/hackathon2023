@@ -11,17 +11,17 @@
              x:Class="dobra3.UserControls.InterfaceRoot.MainWindowRootControl">
     
     <UserControl.Resources>
-        <DataTemplate x:Key="GameHostDataTemplate" x:DataType="{x:Type vm:GameHostViewModel}">
+        <DataTemplate x:Key="GameHostDataTemplate" x:DataType="vm:GameHostViewModel">
             <uch:GameHostControl ViewModel="{Binding .}"/>
         </DataTemplate>
-        <DataTemplate x:Key="MenuHostDataTemplate" x:DataType="{x:Type vm:MenuHostViewModel}">
+        <DataTemplate x:Key="MenuHostDataTemplate" x:DataType="vm:MenuHostViewModel">
             <uch:MenuHostControl ViewModel="{Binding .}"/>
         </DataTemplate>
     </UserControl.Resources>
     
     <ucn:RootNavigationControl x:Name="Navigation">
         <ucn:RootNavigationControl.TemplateSelector>
-            <ts:InterfaceRootTemplateSelector  GameHostTemplate="{StaticResource GameHostDataTemplate}" MenuHostTemplate="{StaticResource MenuHostDataTemplate}"/>
+            <ts:InterfaceRootTemplateSelector GameHostTemplate="{StaticResource GameHostDataTemplate}" MenuHostTemplate="{StaticResource MenuHostDataTemplate}"/>
         </ucn:RootNavigationControl.TemplateSelector>
     </ucn:RootNavigationControl>
 </UserControl>

@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Controls;
 using dobra3.Sdk.ViewModels;
 
@@ -10,6 +11,9 @@ namespace dobra3.UserControls.InterfaceHost
             get => (MenuHostViewModel)DataContext;
             set => DataContext = value;
         }
+        
+        public static readonly StyledProperty<MenuHostViewModel> ViewModelProperty =
+            AvaloniaProperty.Register<GameHostControl, MenuHostViewModel>(nameof(ViewModel));
 
         public MenuHostControl()
         {
