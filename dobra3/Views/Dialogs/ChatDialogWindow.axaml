@@ -2,12 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dlg="using:dobra3.Views.Dialogs"
+        xmlns:vmd="using:dobra3.Sdk.ViewModels.Dialogs"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="dobra3.Views.Dialogs.ChatDialogWindow"
         ExtendClientAreaToDecorationsHint="True"
         TransparencyLevelHint="AcrylicBlur"
         xmlns:vm="using:dobra3.Sdk.ViewModels"
-		xmlns:dlg="using:dobra3.Views.Dialogs"
         Title="ChatDialogWindow">
 
 	<Panel>
@@ -49,7 +50,8 @@
 						HorizontalAlignment="Center"
 						FontSize="22"
 						Grid.Column="1"
-						Text="{Binding ViewModel.CurrentTime, RelativeSource={RelativeSource AncestorType={x:Type dlg:ChatDialogWindow}}}"/>
+						x:DataType="vmd:ChatDialogViewModel"
+						Text="{Binding CurrentTime, RelativeSource={RelativeSource DataContext}}"/>
 				</Grid>
 			</Grid>
 		</Border>

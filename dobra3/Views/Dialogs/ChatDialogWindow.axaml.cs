@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -18,6 +19,7 @@ namespace dobra3.Views.Dialogs
 
         public ChatDialogWindow()
         {
+
             InitializeComponent();
         }
 
