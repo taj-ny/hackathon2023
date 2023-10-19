@@ -23,7 +23,12 @@ namespace dobra3.Sdk.ViewModels
         {
             foreach (var item in _questions.Questions)
             {
-                Questions.Add(new());
+                Questions.Add(new QuestionViewModel()
+                {
+                    Title = item.Question,
+                    Amount = 1m,
+                    Answers = new(item.Answers.Select(x => new AnswerViewModel() { Text = x.Answer }))
+                });
             }
 
             return Task.CompletedTask;

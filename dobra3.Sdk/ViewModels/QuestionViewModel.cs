@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using dobra3.Sdk.DataModels;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace dobra3.Sdk.ViewModels
 {
     public sealed partial class QuestionViewModel : ObservableObject
     {
         [ObservableProperty] private string _Title;
-
-        [ObservableProperty] private string _Description;
+        [ObservableProperty] private decimal _Amount;
+        [ObservableProperty] private ObservableCollection<AnswerViewModel> _Answers;
     }
 }
