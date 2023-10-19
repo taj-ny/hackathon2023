@@ -21,7 +21,7 @@ namespace dobra3.Sdk.ViewModels.Dialogs
                 new () { Message = "abcasdasd" },
                 new () { Message = "abcasdasdasaa" },
             };
-            _CurrentTime = 60;
+            _CurrentTime = 5;
             _periodicTimer = new(TimeSpan.FromMilliseconds(1000));
         }
 

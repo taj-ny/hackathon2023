@@ -28,7 +28,10 @@
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>
 
-				<ItemsControl Grid.Row="0" ItemsSource="{Binding ViewModel.Bubbles, RelativeSource={RelativeSource AncestorType={x:Type dlg:ChatDialogWindow}}}">
+				<ItemsControl 
+					Grid.Row="0" 
+					x:DataType="vmd:ChatDialogViewModel"
+					ItemsSource="{Binding Bubbles, RelativeSource={RelativeSource DataContext}}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="vm:ChatBubbleViewModel">
 							<Border Background="Gray" CornerRadius="8">

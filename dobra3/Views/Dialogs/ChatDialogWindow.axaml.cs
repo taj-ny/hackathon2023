@@ -11,7 +11,18 @@ namespace dobra3.Views.Dialogs
         public ChatDialogViewModel ViewModel
         {
             get => (ChatDialogViewModel)DataContext;
-            set => DataContext = value;
+            set
+            {
+                DataContext = value;
+                value.PropertyChanged += (sender, args) =>
+                {
+                    if (args.PropertyName == nameof(ViewModel.CurrentTime))
+                    {
+                        if (ViewModel.CurrentTime == 0)
+                            Close();
+                    }
+                };
+            }
         }
 
         public static readonly StyledProperty<ChatDialogViewModel> ViewModelProperty =
@@ -19,7 +30,6 @@ namespace dobra3.Views.Dialogs
 
         public ChatDialogWindow()
         {
-
             InitializeComponent();
         }
 
