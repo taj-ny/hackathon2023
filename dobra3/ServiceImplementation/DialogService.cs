@@ -1,9 +1,8 @@
 ﻿using dobra3.Sdk.Services;
+using dobra3.Sdk.ViewModels.Dialogs;
 using dobra3.Views;
 using dobra3.Views.Dialogs;
-using System;
 using System.Threading.Tasks;
-using dobra3.Sdk.ViewModels.Dialogs;
 
 namespace dobra3.ServiceImplementation
 {
@@ -17,9 +16,12 @@ namespace dobra3.ServiceImplementation
             }.ShowDialog(MainWindow.Instance);
         }
 
-        public Task ShowFriendDialogAsync()
+        public Task ShowChatDialogAsync(ChatDialogViewModel viewModel)
         {
-            throw new NotImplementedException();
+            return new ChatDialogWindow()
+            {
+                ViewModel = viewModel
+            }.ShowDialog(MainWindow.Instance);
         }
     }
 }

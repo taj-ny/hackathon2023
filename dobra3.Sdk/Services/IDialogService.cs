@@ -6,6 +6,6 @@ namespace dobra3.Sdk.Services
     {
         Task ShowSettingsDialogAsync(SettingsDialogViewModel viewModel);
 
-        Task ShowFriendDialogAsync();
+        Task ShowChatDialogAsync(ChatDialogViewModel viewModel);
     }
 }

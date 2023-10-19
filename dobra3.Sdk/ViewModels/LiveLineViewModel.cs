@@ -1,12 +1,16 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using dobra3.Sdk.Services;
 
 namespace dobra3.Sdk.ViewModels
 {
     public sealed partial class LiveLineViewModel : ObservableObject
     {
+        private IDialogService DialogService { get; } = Ioc.Default.GetRequiredService<IDialogService>();
+
         [ObservableProperty] private bool _IsVoteUsed;
         [ObservableProperty] private bool _IsSplitUsed;
         [ObservableProperty] private bool _IsCallUsed;
@@ -25,7 +29,6 @@ namespace dobra3.Sdk.ViewModels
         
         public ObservableCollection<string> Votes { get; }
         
-
         public LiveLineViewModel()
         {
             Votes = new();
@@ -98,6 +101,8 @@ namespace dobra3.Sdk.ViewModels
         [RelayCommand]
         private async Task CallAsync()
         {
+            await DialogService.ShowChatDialogAsync(new());
+            IsCallUsed = true;
         }
     }
 }
