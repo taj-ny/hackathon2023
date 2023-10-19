@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace dobra3.Sdk.ViewModels
 {
-    public sealed class MenuHostViewModel : ObservableObject
+    public sealed partial class MenuHostViewModel : ObservableObject
     {
+        [RelayCommand]
+        private async Task StartGameAsync(CancellationToken cancellationToken)
+        {
+
+        }
     }
 }
