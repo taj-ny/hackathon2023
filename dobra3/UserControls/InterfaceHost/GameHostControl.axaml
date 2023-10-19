@@ -54,6 +54,7 @@
 		    <TextBlock
 			    FontSize="30"
 			    TextAlignment="Center"
+			    TextWrapping="Wrap"
 			    Text="{Binding ViewModel.CurrentQuestion.Title, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"/>
 		    
 		    <StackPanel Orientation="Vertical" Margin="0,50,0,0" Spacing="5">
