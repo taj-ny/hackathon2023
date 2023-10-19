@@ -49,9 +49,7 @@
             <Button
                 VerticalAlignment="Stretch"
                 i:Attached.Icon="fa-solid fa-gear"
-                Command="{Binding ViewModel.StartGameCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}" />
+                Command="{Binding ViewModel.OpenSettingsCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:MenuHostControl}}}" />
         </StackPanel>
-
-
     </Grid>
 </UserControl>

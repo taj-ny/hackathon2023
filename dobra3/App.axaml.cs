@@ -26,7 +26,7 @@ namespace dobra3
                 _serviceProvider = ConfigureServices();
                 Ioc.Default.ConfigureServices(_serviceProvider);
 
-                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = MainWindow.Instance;
             }
 
             base.OnFrameworkInitializationCompleted();
@@ -35,6 +35,8 @@ namespace dobra3
         private IServiceProvider ConfigureServices()
         {
             var serviceCollection = new ServiceCollection()
+                .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IFileExplorerService, FileExplorerService>()
                 .AddTransient<INavigationService, AvaloniaNavigationService>()
                 ;
 

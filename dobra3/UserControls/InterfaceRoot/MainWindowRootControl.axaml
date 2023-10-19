@@ -6,7 +6,7 @@
              xmlns:ucn="using:dobra3.UserControls.Navigation"
              xmlns:ts="using:dobra3.TemplateSelectors"
              Loaded="Control_Loaded"
-             xmlns:vm="using:dobra3.Sdk.ViewModels"
+             xmlns:vm="using:dobra3.Sdk.ViewModels.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="dobra3.UserControls.InterfaceRoot.MainWindowRootControl">
     
@@ -17,11 +17,21 @@
         <DataTemplate x:Key="MenuHostDataTemplate" x:DataType="vm:MenuHostViewModel">
             <uch:MenuHostControl ViewModel="{Binding .}"/>
         </DataTemplate>
+        <DataTemplate x:Key="GameOverDataTemplate" x:DataType="vm:GameOverHostViewModel">
+            <uch:GameOverHostControl ViewModel="{Binding .}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="GameWonDataTemplate" x:DataType="vm:GameWonHostViewModel">
+            <uch:GameWonHostControl ViewModel="{Binding .}"/>
+        </DataTemplate>
     </UserControl.Resources>
     
     <ucn:RootNavigationControl x:Name="Navigation">
         <ucn:RootNavigationControl.TemplateSelector>
-            <ts:InterfaceRootTemplateSelector GameHostTemplate="{StaticResource GameHostDataTemplate}" MenuHostTemplate="{StaticResource MenuHostDataTemplate}"/>
+            <ts:InterfaceRootTemplateSelector 
+                GameHostTemplate="{StaticResource GameHostDataTemplate}"
+                MenuHostTemplate="{StaticResource MenuHostDataTemplate}"
+                GameOverHostTemplate="{StaticResource GameOverDataTemplate}"
+                GameWonHostTemplate="{StaticResource GameWonDataTemplate}"/>
         </ucn:RootNavigationControl.TemplateSelector>
     </ucn:RootNavigationControl>
 </UserControl>
