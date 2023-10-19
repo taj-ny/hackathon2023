@@ -12,6 +12,14 @@
         Title="ChatDialogWindow">
 
 	<Panel>
+		<ProgressBar 
+			IsIndeterminate="True"
+			x:DataType="vmd:ChatDialogViewModel"
+			IsVisible="{Binding IsWritingResponse, RelativeSource={RelativeSource DataContext}}"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Top"
+			ZIndex="10000"/>
+		
 		<ExperimentalAcrylicBorder IsHitTestVisible="False">
 			<ExperimentalAcrylicBorder.Material>
 				<ExperimentalAcrylicMaterial
@@ -51,7 +59,11 @@
 						<ColumnDefinition Width="64" />
 					</Grid.ColumnDefinitions>
 
-					<TextBox Grid.Column="0" KeyDown="InputElement_KeyDown" />
+					<TextBox
+						Grid.Column="0" 
+						KeyDown="InputElement_KeyDown"
+						x:DataType="vmd:ChatDialogViewModel"
+						IsEnabled="{Binding !IsWritingResponse, RelativeSource={RelativeSource DataContext}}" />
 					<TextBlock
 						VerticalAlignment="Center"
 						HorizontalAlignment="Center"

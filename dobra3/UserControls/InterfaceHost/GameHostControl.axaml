@@ -20,6 +20,7 @@
 		    <Button 
 			    HorizontalAlignment="Stretch"
 			    Padding="10"
+			    Background=""
 			    Command="{Binding ViewModel.LiveLineViewModel.VoteCommand, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}"
 			    IsEnabled="{Binding !ViewModel.LiveLineViewModel.IsVoteUsed, RelativeSource={RelativeSource AncestorType={x:Type uc:GameHostControl}}}">
 			    <StackPanel Orientation="Horizontal" Spacing="10">

@@ -14,6 +14,7 @@ namespace dobra3.Sdk.ViewModels.Dialogs
         private readonly PeriodicTimer _periodicTimer;
 
         [ObservableProperty] private int _CurrentTime;
+        [ObservableProperty] private bool _IsWritingResponse;
 
         private QuestionViewModel _question;
         
@@ -52,9 +53,11 @@ namespace dobra3.Sdk.ViewModels.Dialogs
             if (string.IsNullOrEmpty(query))
                 return;
 
+            IsWritingResponse = true;
             var bubble = new ChatBubbleViewModel();
             bubble.Message = await CallFriend(_question);
             Bubbles.Add(bubble);
+            IsWritingResponse = false;
         }
         
         public async Task<string> CallFriend(QuestionViewModel qs)
