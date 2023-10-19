@@ -6,6 +6,8 @@ using dobra3.Shared.Utils;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using dobra3.Sdk.Services;
 
 namespace dobra3.Sdk.ViewModels.Dialogs
 {
@@ -14,11 +16,13 @@ namespace dobra3.Sdk.ViewModels.Dialogs
         private readonly PeriodicTimer _periodicTimer;
         private readonly List<ChatMessage> _messages;
         private readonly QuestionViewModel _question;
+        private readonly SemaphoreSlim _semaphore;
 
         [ObservableProperty] private int _CurrentTime;
         [ObservableProperty] private bool _IsWritingResponse;
 
-        
+        private IDialogService DialogService { get; } = Ioc.Default.GetRequiredService<IDialogService>();
+
         public ObservableCollection<ChatBubbleViewModel> Bubbles { get; }
 
         public ChatDialogViewModel(QuestionViewModel question)
@@ -27,6 +31,7 @@ namespace dobra3.Sdk.ViewModels.Dialogs
             _question = question;
             _CurrentTime = 60;
             _periodicTimer = new(TimeSpan.FromMilliseconds(1000));
+            _semaphore = new(1, 1);
             _messages = new()
             {
                 new ChatMessage(ChatMessageRole.System, "Na pytanie `" + _question.Title + "` są cztery odpowiedzi: Odpowiedź A: " + _question.Answers[0].Text + ", B: " + _question.Answers[1].Text + ", C: " + _question.Answers[2].Text + ", D: " + _question.Answers[3].Text + ", Udawaj osobę która musi wybrać jedno z nich, nawet jak jesteś pewien odpowiedzi to używaj zwrotów `myślę, że`, `wydaje mi się że` itd. NIE wspominaj o byciu modelem SI, odpowiadaj krótko. Jeśli nie znasz odpowiedzi na pytanie to przyznaj się do swojej niewiedzy ale i tak wytypuj 1 z odpowiedzi jako najbardziej prawdopodobną. Jak znasz poprawną odpowiedź to uzasadnij w krótki sposób dlaczego ją wybrałeś.")
@@ -50,13 +55,23 @@ namespace dobra3.Sdk.ViewModels.Dialogs
         {
             while (await _periodicTimer.WaitForNextTickAsync(cancellationToken))
             {
+                await _semaphore.WaitAsync();
                 CurrentTime--;
 
                 if (CurrentTime <= 0)
                 {
                     _periodicTimer.Dispose();
                 }
+                _semaphore.Release();
             }
+        }
+
+        [RelayCommand]
+        private async Task OpenSettingsAsync()
+        {
+            await _semaphore.WaitAsync();
+            await DialogService.ShowSettingsDialogAsync(new());
+            _semaphore.Release();
         }
 
         [RelayCommand]

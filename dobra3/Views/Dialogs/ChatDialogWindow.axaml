@@ -3,7 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dlg="using:dobra3.Views.Dialogs"
+    xmlns:i="https://github.com/projektanker/icons.avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vc="using:dobra3.ValueConverters"
     xmlns:vm="using:dobra3.Sdk.ViewModels"
@@ -17,6 +17,7 @@
 
     <Window.Resources>
         <vc:SenderTypeToImageConverter x:Key="SenderTypeToImageConverter" />
+        <vc:SenderTypeToBrushConverter x:Key="SenderTypeToBrushConverter" />
     </Window.Resources>
 
     <Panel>
@@ -73,8 +74,8 @@
                                 <Border
                                     Grid.Column="0"
                                     Margin="0,18,0,0"
-                                    Padding="4"
-                                    Background="Gray"
+                                    Padding="6"
+                                    Background="{Binding SenderType, Converter={StaticResource SenderTypeToBrushConverter}}"
                                     CornerRadius="8">
 
                                     <TextBlock Text="{Binding Message}" TextWrapping="Wrap" />
@@ -88,6 +89,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
                     </Grid.ColumnDefinitions>
 
                     <TextBox
@@ -95,6 +97,7 @@
                         x:DataType="vmd:ChatDialogViewModel"
                         IsEnabled="{Binding !IsWritingResponse, RelativeSource={RelativeSource DataContext}}"
                         KeyDown="InputElement_KeyDown" />
+
                     <TextBlock
                         Grid.Column="1"
                         HorizontalAlignment="Center"
@@ -102,6 +105,13 @@
                         x:DataType="vmd:ChatDialogViewModel"
                         FontSize="22"
                         Text="{Binding CurrentTime, RelativeSource={RelativeSource DataContext}}" />
+
+                    <Button
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        i:Attached.Icon="fa-solid fa-gear"
+                        x:DataType="vmd:ChatDialogViewModel"
+                        Command="{Binding OpenSettingsCommand, RelativeSource={RelativeSource DataContext}}" />
                 </Grid>
             </Grid>
         </Border>
