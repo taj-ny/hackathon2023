@@ -3,15 +3,18 @@ using dobra3.Views;
 using dobra3.Views.Dialogs;
 using System;
 using System.Threading.Tasks;
+using dobra3.Sdk.ViewModels.Dialogs;
 
 namespace dobra3.ServiceImplementation
 {
     internal sealed class DialogService : IDialogService
     {
-        public Task ShowSettingsDialogAsync()
+        public Task ShowSettingsDialogAsync(SettingsDialogViewModel viewModel)
         {
-            var settingsDialog = new SettingsDialogWindow();
-            return settingsDialog.ShowDialog(MainWindow.Instance);
+            return new SettingsDialogWindow()
+            {
+                ViewModel = viewModel
+            }.ShowDialog(MainWindow.Instance);
         }
 
         public Task ShowFriendDialogAsync()

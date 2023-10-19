@@ -36,6 +36,7 @@ namespace dobra3
         {
             var serviceCollection = new ServiceCollection()
                 .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IFileExplorerService, FileExplorerService>()
                 .AddTransient<INavigationService, AvaloniaNavigationService>()
                 ;
 

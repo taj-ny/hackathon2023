@@ -29,7 +29,7 @@ namespace dobra3.Sdk.ViewModels.Views
         [RelayCommand]
         private async Task OpenSettingsAsync()
         {
-            await DialogService.ShowSettingsDialogAsync();
+            await DialogService.ShowSettingsDialogAsync(new());
         }
     }
 }
